@@ -1,4 +1,5 @@
-import {convertToArray} from "../src/utils";
+import {convertToArray} from "../src/utils.ts";
+import {describe, expect, it} from "./dept.ts";
 
 describe("convertToArray", () => {
     it("convert Set into array", () => {

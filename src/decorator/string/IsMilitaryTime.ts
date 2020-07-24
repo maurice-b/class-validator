@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_MILITARY_TIME = "isMilitaryTime";
 
@@ -22,7 +22,7 @@ export function IsMilitaryTime(validationOptions?: ValidationOptions): PropertyD
         {
             name: IS_MILITARY_TIME,
             validator: {
-                validate: (value, args): boolean => isMilitaryTime(value),
+                validate: (value, _args): boolean => isMilitaryTime(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a valid representation of military time in the format HH:MM",
                     validationOptions

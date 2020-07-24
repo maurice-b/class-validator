@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "./ValidateBy.ts";
 
 export const EQUALS = "equals";
 
@@ -19,7 +19,7 @@ export function Equals(comparison: any, validationOptions?: ValidationOptions): 
             name: EQUALS,
             constraints: [comparison],
             validator: {
-                validate: (value, args): boolean => equals(value, args.constraints[0]),
+                validate: (value, args): boolean => equals(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be equal to $constraint1",
                     validationOptions

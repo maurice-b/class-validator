@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_MAGNET_URI = "isMagnetURI";
 
@@ -21,7 +21,7 @@ export function IsMagnetURI(validationOptions?: ValidationOptions): PropertyDeco
         {
             name: IS_MAGNET_URI,
             validator: {
-                validate: (value, args): boolean => isMagnetURI(value),
+                validate: (value, _args): boolean => isMagnetURI(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be magnet uri format",
                     validationOptions

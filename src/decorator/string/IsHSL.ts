@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_HSL = "isHSL";
 
@@ -23,7 +23,7 @@ export function IsHSL(validationOptions?: ValidationOptions): PropertyDecorator 
         {
             name: IS_HSL,
             validator: {
-                validate: (value, args): boolean => isHSL(value),
+                validate: (value, _args): boolean => isHSL(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a HSL color",
                     validationOptions

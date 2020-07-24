@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_DATE = "isDate";
 
@@ -18,7 +18,7 @@ export function IsDate(validationOptions?: ValidationOptions): PropertyDecorator
         {
             name: IS_DATE,
             validator: {
-                validate: (value, args): boolean => isDate(value),
+                validate: (value, _args): boolean => isDate(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a Date instance",
                     validationOptions

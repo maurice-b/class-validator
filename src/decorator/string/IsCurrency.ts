@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import ValidatorJS from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator, validatorInterface} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_CURRENCY = "isCurrency";
 
@@ -8,21 +8,21 @@ export const IS_CURRENCY = "isCurrency";
  * Checks if the string is a valid currency amount.
  * If given value is not a string, then it returns false.
  */
-export function isCurrency(value: unknown, options?: ValidatorJS.IsCurrencyOptions): boolean {
-    return typeof value === "string" && ValidatorJS.isCurrency(value, options);
+export function isCurrency(value: unknown, options?: validatorInterface.IsCurrencyOptions): boolean {
+    return typeof value === "string" && validator.isCurrency(value, options);
 }
 
 /**
  * Checks if the string is a valid currency amount.
  * If given value is not a string, then it returns false.
  */
-export function IsCurrency(options?: ValidatorJS.IsCurrencyOptions, validationOptions?: ValidationOptions): PropertyDecorator {
+export function IsCurrency(options?: validatorInterface.IsCurrencyOptions, validationOptions?: ValidationOptions): PropertyDecorator {
     return ValidateBy(
         {
             name: IS_CURRENCY,
             constraints: [options],
             validator: {
-                validate: (value, args): boolean => isCurrency(value, args.constraints[0]),
+                validate: (value, args): boolean => isCurrency(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a currency",
                     validationOptions

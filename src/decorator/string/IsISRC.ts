@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_ISRC = "isISRC";
 
@@ -21,7 +21,7 @@ export function IsISRC(validationOptions?: ValidationOptions): PropertyDecorator
         {
             name: IS_ISRC,
             validator: {
-                validate: (value, args): boolean => isISRC(value),
+                validate: (value, _args): boolean => isISRC(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an ISRC",
                     validationOptions

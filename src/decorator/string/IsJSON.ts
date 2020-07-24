@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_JSON = "isJson";
 
@@ -21,7 +21,7 @@ export function IsJSON(validationOptions?: ValidationOptions): PropertyDecorator
         {
             name: IS_JSON,
             validator: {
-                validate: (value, args): boolean => isJSON(value),
+                validate: (value, _args): boolean => isJSON(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a json string",
                     validationOptions

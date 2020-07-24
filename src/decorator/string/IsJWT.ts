@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_JWT = "isJwt";
 
@@ -21,7 +21,7 @@ export function IsJWT(validationOptions?: ValidationOptions): PropertyDecorator 
         {
             name: IS_JWT,
             validator: {
-                validate: (value, args): boolean => isJWT(value),
+                validate: (value, _args): boolean => isJWT(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a jwt string",
                     validationOptions

@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "./ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "./ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_LATLONG = "isLatLong";
 
@@ -19,7 +19,7 @@ export function IsLatLong(validationOptions?: ValidationOptions): PropertyDecora
         {
             name: IS_LATLONG,
             validator: {
-                validate: (value, args): boolean => isLatLong(value),
+                validate: (value, _args): boolean => isLatLong(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a latitude,longitude string",
                     validationOptions

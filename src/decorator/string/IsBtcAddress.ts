@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_BTC_ADDRESS = "isBtcAddress";
 
@@ -21,7 +21,7 @@ export function IsBtcAddress(validationOptions?: ValidationOptions): PropertyDec
         {
             name: IS_BTC_ADDRESS,
             validator: {
-                validate: (value, args): boolean => isBtcAddress(value),
+                validate: (value, _args): boolean => isBtcAddress(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a BTC address",
                     validationOptions

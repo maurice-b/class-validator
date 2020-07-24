@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const MIN_DATE = "minDate";
 
@@ -19,7 +19,7 @@ export function MinDate(date: Date, validationOptions?: ValidationOptions): Prop
             name: MIN_DATE,
             constraints: [date],
             validator: {
-                validate: (value, args): boolean => minDate(value, args.constraints[0]),
+                validate: (value, args): boolean => minDate(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => "minimal allowed date for " + eachPrefix + "$property is $constraint1",
                     validationOptions

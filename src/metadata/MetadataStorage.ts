@@ -1,7 +1,11 @@
-import {ValidationMetadata} from "./ValidationMetadata";
-import {ConstraintMetadata} from "./ConstraintMetadata";
-import {ValidationSchema} from "../validation-schema/ValidationSchema";
-import {ValidationSchemaToMetadataTransformer} from "../validation-schema/ValidationSchemaToMetadataTransformer";
+import {ValidationMetadata} from "./ValidationMetadata.ts";
+import {ConstraintMetadata} from "./ConstraintMetadata.ts";
+import {ValidationSchema} from "../validation-schema/ValidationSchema.ts";
+import {ValidationSchemaToMetadataTransformer} from "../validation-schema/ValidationSchemaToMetadataTransformer.ts";
+
+
+export type ObjectKeyAny = { [key: string]: any };
+const global: ObjectKeyAny = {};
 
 /**
  * Storage all metadatas.
@@ -118,9 +122,6 @@ export class MetadataStorage {
  * Metadata storage follows the best practices and stores metadata in a global variable.
  */
 export function getMetadataStorage(): MetadataStorage {
-    if (typeof window !== "undefined") {
-        (window).global = window;
-    }
     if (!(global as any).classValidatorMetadataStorage)
         (global as any).classValidatorMetadataStorage = new MetadataStorage();
 

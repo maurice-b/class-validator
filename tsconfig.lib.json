@@ -1,0 +1,28 @@
+{
+  "include": [
+    "./src",
+    "./test"
+  ],
+  "exclude": [],
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "esnext",
+    "alwaysStrict": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "typescript-deno-plugin",
+        "enable": true,
+        "importmap": "import_map.json"
+      }
+    ],
+    "target": "esnext"
+
+  }
+}

@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_ETHEREUM_ADDRESS = "isEthereumAddress";
 
@@ -21,7 +21,7 @@ export function IsEthereumAddress(validationOptions?: ValidationOptions): Proper
         {
             name: IS_ETHEREUM_ADDRESS,
             validator: {
-                validate: (value, args): boolean => isEthereumAddress(value),
+                validate: (value, _args): boolean => isEthereumAddress(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an Ethereum address",
                     validationOptions

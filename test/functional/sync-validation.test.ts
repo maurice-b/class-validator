@@ -1,9 +1,10 @@
-import {Validator} from "../../src/validation/Validator";
-import {ValidationArguments} from "../../src/validation/ValidationArguments";
-import {registerDecorator} from "../../src/register-decorator";
-import {ValidationOptions} from "../../src/decorator/ValidationOptions";
-import {ValidatorConstraint, Validate, IsNotEmpty} from "../../src/decorator/decorators";
-import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface";
+import {Validator} from "../../src/validation/Validator.ts";
+import {ValidationArguments} from "../../src/validation/ValidationArguments.ts";
+import {registerDecorator} from "../../src/register-decorator.ts";
+import {ValidationOptions} from "../../src/decorator/ValidationOptions.ts";
+import {IsNotEmpty, Validate, ValidatorConstraint} from "../../src/decorator/decorators.ts";
+import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
@@ -25,7 +26,7 @@ describe("sync validation should ignore async validation constraints", () => {
                 async: true,
                 name: "isLonger",
                 validator: {
-                    validate(value: any, args: ValidationArguments): Promise<boolean> {
+                    validate(_value: any, _args: ValidationArguments): Promise<boolean> {
                         return Promise.resolve(false);
                     }
                 }
@@ -35,20 +36,20 @@ describe("sync validation should ignore async validation constraints", () => {
 
     class SecondClass {
         @IsLonger("lastName")
-        firstName: string;
+        firstName: string | undefined;
 
         @Validate(IsShortenThanConstraint)
-        lastName: string;
+        lastName: string | undefined;
 
         @IsNotEmpty({message: "name should not be empty"})
-        name: string;
+        name: string | undefined;
 
         @IsNotEmpty()
         alwaysWithValue: string = "this field always has a value";
     }
 
     it("should ignore async validations and validate only sync validation types", () => {
-        expect.assertions(1);
+        // expect.assertions(1);
         const model = new SecondClass();
         model.firstName = "such validation may lead";
         model.firstName = "to recursion";
@@ -58,7 +59,7 @@ describe("sync validation should ignore async validation constraints", () => {
     });
 
     it("should ignore async validations and validate only sync validation types", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new SecondClass();
         model.firstName = "such validation may lead";
         model.firstName = "to recursion";

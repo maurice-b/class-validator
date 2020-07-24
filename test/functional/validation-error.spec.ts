@@ -1,5 +1,6 @@
-import {IsString, IsUrl, IsOptional, ValidateNested, MinLength} from "../../src/decorator/decorators";
-import {Validator} from "../../src/validation/Validator";
+import {IsOptional, IsString, IsUrl, MinLength, ValidateNested} from "../../src/decorator/decorators.ts";
+import {Validator} from "../../src/validation/Validator.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
@@ -21,7 +22,7 @@ describe("ValidationError", () => {
 
             @IsOptional()
             @ValidateNested()
-            public insideNested: NestedClass;
+            public insideNested: NestedClass | undefined;
 
             constructor(url: string, name: any, insideNested?: NestedClass) {
                 this.url = url;

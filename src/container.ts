@@ -34,7 +34,7 @@ const defaultContainer: { get<T>(someClass: { new (...args: any[]): T }|Function
 })();
 
 let userContainer: { get<T>(someClass: { new (...args: any[]): T }|Function): T };
-let userContainerOptions: UseContainerOptions;
+let userContainerOptions: UseContainerOptions | undefined;
 
 /**
  * Sets container to be used by this library.

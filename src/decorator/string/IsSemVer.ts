@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_SEM_VER = "isSemVer";
 
@@ -21,7 +21,7 @@ export function IsSemVer(validationOptions?: ValidationOptions): PropertyDecorat
         {
             name: IS_SEM_VER,
             validator: {
-                validate: (value, args): boolean => isSemVer(value),
+                validate: (value, _args): boolean => isSemVer(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a Semantic Versioning Specification",
                     validationOptions

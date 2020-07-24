@@ -1,20 +1,21 @@
-import {Contains, MinLength} from "../../src/decorator/decorators";
-import {Validator} from "../../src/validation/Validator";
+import {Contains, MinLength} from "../../src/decorator/decorators.ts";
+import {Validator} from "../../src/validation/Validator.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
 describe("inherited validation", () => {
     it("should validate inherited properties", () => {
-        expect.assertions(9);
+        //expect.assertions(9);
 
         class MyClass {
             @Contains("hello")
-            title: string;
+            title: string | undefined;
         }
 
         class MySubClass extends MyClass {
             @MinLength(5)
-            name: string;
+            name: string | undefined;
         }
 
         const model = new MySubClass();

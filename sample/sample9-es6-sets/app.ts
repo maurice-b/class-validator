@@ -1,16 +1,16 @@
-import {Validator} from "../../src/validation/Validator";
-import {Post} from "./Post";
-import {Tag} from "./Tag";
+import {Validator} from "../../src/validation/Validator.ts";
+import {Post} from "./Post.ts";
+import {Tag} from "./Tag.ts";
 
-let validator = new Validator();
+const validator = new Validator();
 
-let tag1 = new Tag();
+const tag1 = new Tag();
 tag1.value = "ja";
 
-let tag2 = new Tag();
+const tag2 = new Tag();
 tag2.value = "node.js";
 
-let post1 = new Post();
+const post1 = new Post();
 post1.title = "Hello world";
 post1.tags = new Set();
 post1.tags.add(tag1);

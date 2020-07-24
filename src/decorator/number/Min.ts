@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const MIN = "min";
 
@@ -19,7 +19,7 @@ export function Min(minValue: number, validationOptions?: ValidationOptions): Pr
             name: MIN,
             constraints: [minValue],
             validator: {
-                validate: (value, args): boolean => min(value, args.constraints[0]),
+                validate: (value, args): boolean => min(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must not be less than $constraint1",
                     validationOptions

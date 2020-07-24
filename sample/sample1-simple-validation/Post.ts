@@ -1,4 +1,16 @@
-import {Contains, IsInt, MinLength, MaxLength, IsEmail, IsFQDN, IsDate, ArrayNotEmpty, ArrayMinSize, ArrayMaxSize, IsEnum} from "../../src/decorator/decorators";
+import {
+    ArrayMaxSize,
+    ArrayMinSize,
+    ArrayNotEmpty,
+    Contains,
+    IsDate,
+    IsEmail,
+    IsEnum,
+    IsFQDN,
+    IsInt,
+    MaxLength,
+    MinLength
+} from "../../src/decorator/decorators.ts";
 
 export enum PostType {
     Public,
@@ -9,30 +21,30 @@ export class Post {
 
     @MinLength(10)
     @MaxLength(20)
-    title: string;
+    title: string | undefined;
 
     @Contains("hello")
-    text: string;
+    text: string | undefined;
 
     @IsInt()
-    rating: number;
+    rating: number | undefined;
 
     @IsEmail()
-    email: string;
+    email: string | undefined;
 
     @IsFQDN()
-    site: string;
+    site: string | undefined;
 
     @IsDate()
-    createDate: Date;
+    createDate: Date | undefined;
 
     @ArrayNotEmpty()
     @ArrayMinSize(2)
     @ArrayMaxSize(5)
     @MinLength(3, { each: true, message: "Tag is too short. Minimal length is $value characters" })
     @MaxLength(50, { each: true, message: "Tag is too long. Maximal length is $value characters" })
-    tags: string[];
+    tags: string[] = [];
 
     @IsEnum(PostType)
-    type: PostType;
+    type: PostType | undefined;
 }

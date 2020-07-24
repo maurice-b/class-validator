@@ -1,5 +1,5 @@
-import {validate} from "../../src/index";
-import {Post, PostType} from "./Post";
+import {validate} from "../../src/mod.ts";
+import {Post, PostType} from "./Post.ts";
 
 // Sample1. simple validation
 
@@ -142,21 +142,21 @@ validate(post10).then(result => {
     console.log("10. should pass: ", result); // should pass
 });
 
-let post11 = new Post();
+const post11 = new Post();
 post11.title = "Hello world"; // should pass
 post11.text = "this is a great post about hello world"; // should pass
 post11.rating = 10; // should pass
 post11.email = "info@google.com"; // should pass
 post11.site = "google.com"; // should pass
 post11.createDate = new Date(); // should pass
-post11.tags = null;
+post11.tags = [];
 post11.type = PostType.Private;
 
 validate(post11).then(result => {
     console.log("11. should not pass: ", result); // should not pass
 });
 
-let post12 = new Post();
+const post12 = new Post();
 post12.title = "Hello world"; // should pass
 post12.text = "this is a great post about hello world"; // should pass
 post12.rating = 10; // should pass

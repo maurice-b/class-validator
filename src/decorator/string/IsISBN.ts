@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import ValidatorJS from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export type IsISBNVersion = "10" | "13" | 10 | 13;
 
@@ -12,7 +12,7 @@ export const IS_ISBN = "isIsbn";
  */
 export function isISBN(value: unknown, version?: IsISBNVersion): boolean {
     const versionStr = version ? (`${version}` as "10" | "13") : undefined;
-    return typeof value === "string" && ValidatorJS.isISBN(value, versionStr);
+    return typeof value === "string" && validator.isISBN(value, versionStr);
 }
 
 /**
@@ -25,7 +25,7 @@ export function IsISBN(version?: IsISBNVersion, validationOptions?: ValidationOp
             name: IS_ISBN,
             constraints: [version],
             validator: {
-                validate: (value, args): boolean => isISBN(value, args.constraints[0]),
+                validate: (value, args): boolean => isISBN(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an ISBN",
                     validationOptions

@@ -1,6 +1,6 @@
-import {registerDecorator} from "../../src/index";
-import {ValidationOptions} from "../../src/decorator/ValidationOptions";
-import {ValidationArguments} from "../../src/validation/ValidationArguments";
+import {registerDecorator} from "../../src/mod.ts";
+import {ValidationOptions} from "../../src/decorator/ValidationOptions.ts";
+import {ValidationArguments} from "../../src/validation/ValidationArguments.ts";
 
 export function IsUserAlreadyExist(validationOptions?: ValidationOptions) {
     return function (object: Object, propertyName: string) {
@@ -11,7 +11,7 @@ export function IsUserAlreadyExist(validationOptions?: ValidationOptions) {
             propertyName: propertyName,
             options: validationOptions,
             validator: {
-                validate(value: any, args: ValidationArguments) {
+                validate(value: any, _args: ValidationArguments) {
                     return new Promise(ok => {
                         if (value !== "admin" && value !== "user") {
                             ok(true);

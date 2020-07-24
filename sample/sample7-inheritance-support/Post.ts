@@ -1,16 +1,16 @@
-import {Contains, IsInt, MinLength, MaxLength} from "../../src/decorator/decorators";
-import {BaseContent} from "./BaseContent";
+import {Contains, IsInt, MaxLength, MinLength} from "../../src/decorator/decorators.ts";
+import {BaseContent} from "./BaseContent.ts";
 
 export class Post extends BaseContent {
 
     @MinLength(10)
     @MaxLength(20)
-    title: string;
+    title: string | undefined;
 
     @Contains("hello")
-    text: string;
+    text: string | undefined;
 
     @IsInt()
-    rating: number;
+    rating: number | undefined;
 
 }

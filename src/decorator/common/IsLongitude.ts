@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "./ValidateBy";
-import { isLatLong } from "./IsLatLong";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "./ValidateBy.ts";
+import {isLatLong} from "./IsLatLong.ts";
 
 export const IS_LONGITUDE = "isLongitude";
 
@@ -19,7 +19,7 @@ export function IsLongitude(validationOptions?: ValidationOptions): PropertyDeco
         {
             name: IS_LONGITUDE,
             validator: {
-                validate: (value, args): boolean => isLongitude(value),
+                validate: (value, _args): boolean => isLongitude(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a longitude string or number",
                     validationOptions

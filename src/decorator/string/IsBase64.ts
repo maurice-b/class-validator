@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_BASE64 = "isBase64";
 
@@ -21,7 +21,7 @@ export function IsBase64(validationOptions?: ValidationOptions): PropertyDecorat
         {
             name: IS_BASE64,
             validator: {
-                validate: (value, args): boolean => isBase64(value),
+                validate: (value, _args): boolean => isBase64(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be base64 encoded",
                     validationOptions

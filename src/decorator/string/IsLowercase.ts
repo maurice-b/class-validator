@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_LOWERCASE = "isLowercase";
 
@@ -9,7 +9,7 @@ export const IS_LOWERCASE = "isLowercase";
  * If given value is not a string, then it returns false.
  */
 export function isLowercase(value: unknown): boolean {
-    return typeof value === "string" && validator.isLowercase(value);
+    return typeof value === "string" && validator.isLowerCase(value);
 }
 
 /**
@@ -21,7 +21,7 @@ export function IsLowercase(validationOptions?: ValidationOptions): PropertyDeco
         {
             name: IS_LOWERCASE,
             validator: {
-                validate: (value, args): boolean => isLowercase(value),
+                validate: (value, _args): boolean => isLowercase(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a lowercase string",
                     validationOptions

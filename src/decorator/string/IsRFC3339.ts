@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_RFC_3339 = "isRFC3339";
 
@@ -21,7 +21,7 @@ export function IsRFC3339(validationOptions?: ValidationOptions): PropertyDecora
         {
             name: IS_RFC_3339,
             validator: {
-                validate: (value, args): boolean => isRFC3339(value),
+                validate: (value, _args): boolean => isRFC3339(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be RFC 3339 date",
                     validationOptions

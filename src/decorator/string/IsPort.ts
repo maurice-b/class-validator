@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_PORT = "isPort";
 
@@ -19,7 +19,7 @@ export function IsPort(validationOptions?: ValidationOptions): PropertyDecorator
         {
             name: IS_PORT,
             validator: {
-                validate: (value, args): boolean => isPort(value),
+                validate: (value, _args): boolean => isPort(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a port",
                     validationOptions

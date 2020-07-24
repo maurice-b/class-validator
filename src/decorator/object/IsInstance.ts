@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_INSTANCE = "isInstance";
 
@@ -21,10 +21,10 @@ export function IsInstance(targetType: new (...args: any[]) => any, validationOp
             name: IS_INSTANCE,
             constraints: [targetType],
             validator: {
-                validate: (value, args): boolean => isInstance(value, args.constraints[0]),
+                validate: (value, args): boolean => isInstance(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix, args) => {
-                        if (args.constraints[0]) {
+                        if (args && args.constraints[0]) {
                             return eachPrefix + `$property must be an instance of ${args.constraints[0].name}`;
                         } else {
                             return eachPrefix + `${IS_INSTANCE} decorator expects and object as value, but got falsy value.`;

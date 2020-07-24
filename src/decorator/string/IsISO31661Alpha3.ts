@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_ISO31661_ALPHA_3 = "isISO31661Alpha3";
 
@@ -19,7 +19,7 @@ export function IsISO31661Alpha3(validationOptions?: ValidationOptions): Propert
         {
             name: IS_ISO31661_ALPHA_3,
             validator: {
-                validate: (value, args): boolean => isISO31661Alpha3(value),
+                validate: (value, _args): boolean => isISO31661Alpha3(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a valid ISO31661 Alpha3 code",
                     validationOptions

@@ -1,199 +1,201 @@
 import {
-    IsBooleanString,
-    IsPositive,
-    IsLatLong,
-    IsLongitude,
-    IsLatitude,
-    IsNegative,
-    Contains,
-    Equals,
-    MinDate,
-    MaxDate,
-    IsAlpha,
-    IsAlphanumeric,
-    IsAscii,
-    IsDecimal,
-    IsBase64,
-    IsBoolean,
-    IsByteLength,
-    IsCreditCard,
-    IsCurrency,
-    IsDate,
-    IsDivisibleBy,
-    IsEmail,
-    IsEnum,
-    IsFQDN,
-    IsFullWidth,
-    IsHalfWidth,
-    IsVariableWidth,
-    IsHexColor,
-    IsHexadecimal,
-    IsIP,
-    IsISBN,
-    IsISO8601,
-    IsIn,
-    IsInt,
-    IsJSON,
-    IsJWT,
-    IsObject,
-    IsNotEmptyObject,
-    Length,
-    IsLowercase,
-    IsMongoId,
-    IsMultibyte,
-    IsNumberString,
-    IsSurrogatePair,
-    IsUrl,
-    IsUUID,
-    IsUppercase,
-    Matches,
-    MinLength,
-    MaxLength,
-    Min,
-    Max,
-    IsNotEmpty,
-    IsMilitaryTime,
-    ArrayNotEmpty,
-    ArrayMinSize,
-    ArrayMaxSize,
-    NotEquals,
-    IsEmpty,
-    IsDefined,
-    IsNotIn,
-    IsNumber,
-    IsString,
-    NotContains,
     ArrayContains,
-    ArrayNotContains,
-    ArrayUnique,
-    IsArray,
-    IsDateString,
-    IsInstance,
-    IsPhoneNumber,
-    IsISO31661Alpha2,
-    IsISO31661Alpha3,
-    IsHash,
-    IsMACAddress,
-    IsISSN,
-    IsFirebasePushId,
-    isDefined,
-    isNumber,
-    isURL,
-    isBoolean,
-    isString,
-    isInt,
-    isArray,
-    isEnum,
-    contains,
-    isObject,
-    isNotEmptyObject,
-    isInstance,
-    notContains,
-    isAlpha,
-    isAlphanumeric,
-    isAscii,
-    isDecimal,
-    isBase64,
-    isByteLength,
-    isCreditCard,
-    isCurrency,
-    isEmail,
-    isFQDN,
-    isFullWidth,
-    isHalfWidth,
-    isVariableWidth,
-    isHexColor,
-    isHexadecimal,
-    isMACAddress,
-    isISBN,
-    isISO8601,
-    isIP,
-    isJSON,
-    isJWT,
-    isLowercase,
-    isMongoId,
-    isMultibyte,
-    isSurrogatePair,
-    isUUID,
-    isUppercase,
-    length,
-    minLength,
-    maxLength,
-    isFirebasePushId,
-    equals,
-    notEquals,
-    isEmpty,
-    isNotEmpty,
-    isIn,
-    isNotIn,
-    isDateString,
-    isDivisibleBy,
-    isPositive,
-    isNegative,
-    min,
-    max,
-    isBooleanString,
-    isNumberString,
-    matches,
-    isHash,
-    isISSN,
     arrayContains,
-    arrayNotContains,
-    arrayMinSize,
+    ArrayMaxSize,
     arrayMaxSize,
-    arrayUnique,
+    ArrayMinSize,
+    arrayMinSize,
+    ArrayNotContains,
+    arrayNotContains,
+    ArrayNotEmpty,
     arrayNotEmpty,
-    minDate,
-    maxDate,
-    isDate,
-    IsEAN,
-    isEAN,
-    IsEthereumAddress,
-    isEthereumAddress,
-    IsBtcAddress,
-    isBtcAddress,
-    IsDataURI,
-    isDataURI,
-    IsHSL,
-    isHSL,
-    IsRgbColor,
-    isRgbColor,
-    isIdentityCard,
-    IsIdentityCard,
+    ArrayUnique,
+    arrayUnique,
+    Contains,
+    contains,
+    Equals,
+    equals,
+    IsAlpha,
+    isAlpha,
+    IsAlphanumeric,
+    isAlphanumeric,
+    IsArray,
+    isArray,
+    IsAscii,
+    isAscii,
     IsBase32,
     isBase32,
-    IsIBAN,
-    isIBAN,
+    IsBase64,
+    isBase64,
     IsBIC,
     isBIC,
+    IsBoolean,
+    isBoolean,
+    IsBooleanString,
+    isBooleanString,
+    IsBtcAddress,
+    isBtcAddress,
+    IsByteLength,
+    isByteLength,
+    IsCreditCard,
+    isCreditCard,
+    IsCurrency,
+    isCurrency,
+    IsDataURI,
+    isDataURI,
+    IsDate,
+    isDate,
+    IsDateString,
+    isDateString,
+    IsDecimal,
+    isDecimal,
+    IsDecimalOptions,
+    IsDefined,
+    isDefined,
+    IsDivisibleBy,
+    isDivisibleBy,
+    IsEAN,
+    isEAN,
+    IsEmail,
+    isEmail,
+    IsEmpty,
+    isEmpty,
+    IsEnum,
+    isEnum,
+    IsEthereumAddress,
+    isEthereumAddress,
+    IsFirebasePushId,
+    isFirebasePushId,
+    IsFQDN,
+    isFQDN,
+    IsFullWidth,
+    isFullWidth,
+    IsHalfWidth,
+    isHalfWidth,
+    IsHash,
+    isHash,
+    IsHexadecimal,
+    isHexadecimal,
+    IsHexColor,
+    isHexColor,
+    IsHSL,
+    isHSL,
+    IsIBAN,
+    isIBAN,
+    isIdentityCard,
+    IsIdentityCard,
+    IsIn,
+    isIn,
+    IsInstance,
+    isInstance,
+    IsInt,
+    isInt,
+    IsIP,
+    isIP,
+    IsISBN,
+    isISBN,
+    IsISO31661Alpha2,
+    IsISO31661Alpha3,
+    IsISO8601,
+    isISO8601,
     IsISRC,
     isISRC,
-    IsRFC3339,
-    isRFC3339,
+    IsISSN,
+    isISSN,
+    IsJSON,
+    isJSON,
+    IsJWT,
+    isJWT,
+    IsLatitude,
+    IsLatLong,
     IsLocale,
     isLocale,
+    IsLongitude,
+    IsLowercase,
+    isLowercase,
+    IsMACAddress,
+    isMACAddress,
     IsMagnetURI,
     isMagnetURI,
+    IsMilitaryTime,
     IsMimeType,
     isMimeType,
+    IsMongoId,
+    isMongoId,
+    IsMultibyte,
+    isMultibyte,
+    IsNegative,
+    isNegative,
+    IsNotEmpty,
+    isNotEmpty,
+    IsNotEmptyObject,
+    isNotEmptyObject,
+    IsNotIn,
+    isNotIn,
+    IsNumber,
+    isNumber,
+    IsNumberString,
+    isNumberString,
+    IsObject,
+    isObject,
     isOctal,
     IsOctal,
     IsPassportNumber,
     isPassportNumber,
+    IsPhoneNumber,
+    IsPositive,
+    isPositive,
     IsPostalCode,
     isPostalCode,
+    IsRFC3339,
+    isRFC3339,
+    IsRgbColor,
+    isRgbColor,
     IsSemVer,
-    isSemVer
-} from "../../src/decorator/decorators";
-import {Validator} from "../../src/validation/Validator";
-import {ValidatorOptions} from "../../src/validation/ValidatorOptions";
-import {default as ValidatorJS} from "validator";
+    isSemVer,
+    IsString,
+    isString,
+    IsSurrogatePair,
+    isSurrogatePair,
+    IsUppercase,
+    isUppercase,
+    IsUrl,
+    isURL,
+    IsUUID,
+    isUUID,
+    IsVariableWidth,
+    isVariableWidth,
+    Length,
+    length,
+    Matches,
+    matches,
+    Max,
+    max,
+    MaxDate,
+    maxDate,
+    MaxLength,
+    maxLength,
+    Min,
+    min,
+    MinDate,
+    minDate,
+    MinLength,
+    minLength,
+    NotContains,
+    notContains,
+    NotEquals,
+    notEquals
+} from "../../src/decorator/decorators.ts";
+import {Validator} from "../../src/validation/Validator.ts";
+import {ValidatorOptions} from "../../src/validation/ValidatorOptions.ts";
+import {describe, expect, it} from "../dept.ts";
 
-export function checkValidValues(object: { someProperty: any }, values: any[], validatorOptions?: ValidatorOptions): Promise<any> {
+export async function checkValidValues(object: { someProperty: any }, values: any[], validatorOptions?: ValidatorOptions): Promise<any> {
     const validator = new Validator();
     const promises = values.map(value => {
-        object.someProperty = value;
-        return validator.validate(object, validatorOptions)
+        const copyObject = {...object};
+        copyObject.someProperty = value;
+        return validator.validate(copyObject, validatorOptions)
             .then((errors) => {
                 expect(errors.length).toEqual(0);
                 if (errors.length !== 0) {
@@ -247,7 +249,6 @@ export function checkReturnedError(object: { someProperty: any },
     return Promise.all(promises);
 }
 
-const validator = new Validator();
 
 describe("IsDefined", () => {
 
@@ -256,7 +257,7 @@ describe("IsDefined", () => {
 
     class MyClass {
         @IsDefined()
-        someProperty: string;
+        someProperty: number | boolean | string | undefined | any;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -313,7 +314,7 @@ describe("Equals", () => {
 
     class MyClass {
         @Equals(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -346,7 +347,7 @@ describe("NotEquals", () => {
 
     class MyClass {
         @NotEquals(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -378,7 +379,7 @@ describe("IsEmpty", () => {
 
     class MyClass {
         @IsEmpty()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -410,7 +411,7 @@ describe("IsNotEmpty", () => {
 
     class MyClass {
         @IsNotEmpty()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -443,7 +444,7 @@ describe("IsIn", () => {
 
     class MyClass {
         @IsIn(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -476,7 +477,7 @@ describe("IsNotIn", () => {
 
     class MyClass {
         @IsNotIn(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -598,7 +599,7 @@ describe("IsDate", () => {
 
     class MyClass {
         @IsDate()
-        someProperty: Date;
+        someProperty: Date | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -630,27 +631,27 @@ describe("IsNumber", () => {
 
     class MyClass {
         @IsNumber()
-        someProperty: number;
+        someProperty: number | undefined;
     }
 
     class NaNTestClass {
         @IsNumber({allowNaN: true})
-        someProperty: number;
+        someProperty: number | undefined;
     }
 
     class InfinityTestClass {
         @IsNumber({allowInfinity: true})
-        someProperty: number;
+        someProperty: number | undefined;
     }
 
     class MaxDecimalPlacesTest {
         @IsNumber({maxDecimalPlaces: 3})
-        someProperty: number;
+        someProperty: number | undefined;
     }
 
     class ZeroDecimalPlacesTest {
         @IsNumber({maxDecimalPlaces: 0})
-        someProperty: number;
+        someProperty: number | undefined;
     }
 
     it("should fail if NaN passed without allowing NaN values", () => {
@@ -724,7 +725,7 @@ describe("IsInt", () => {
 
     class MyClass {
         @IsInt()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -763,7 +764,7 @@ describe("IsString", () => {
 
     class MyClass {
         @IsString()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -814,7 +815,7 @@ describe("IsDateString", () => {
 
     class MyClass {
         @IsDateString()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -854,7 +855,7 @@ describe("IsArray", () => {
 
     class MyClass {
         @IsArray()
-        someProperty: string[];
+        someProperty: string[] | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -906,12 +907,12 @@ describe("IsEnum", () => {
 
     class MyClass {
         @IsEnum(MyEnum)
-        someProperty: MyEnum;
+        someProperty: MyEnum | undefined;
     }
 
     class MyClass2 {
         @IsEnum(MyStringEnum)
-        someProperty: MyStringEnum;
+        someProperty: MyStringEnum | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -966,7 +967,7 @@ describe("IsDivisibleBy", () => {
 
     class MyClass {
         @IsDivisibleBy(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1020,7 +1021,7 @@ describe("IsPositive", () => {
 
     class MyClass {
         @IsPositive()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1075,7 +1076,7 @@ describe("IsNegative", () => {
 
     class MyClass {
         @IsNegative()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1108,7 +1109,7 @@ describe("Min", () => {
 
     class MyClass {
         @Min(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1141,7 +1142,7 @@ describe("Max", () => {
 
     class MyClass {
         @Max(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1174,7 +1175,7 @@ describe("MinDate", () => {
 
     class MyClass {
         @MinDate(constraint)
-        someProperty: Date;
+        someProperty: Date | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1207,7 +1208,7 @@ describe("MaxDate", () => {
 
     class MyClass {
         @MaxDate(constraint)
-        someProperty: Date;
+        someProperty: Date | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1248,7 +1249,7 @@ describe("IsBooleanString", () => {
 
     class MyClass {
         @IsBooleanString()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1291,7 +1292,7 @@ describe("IsNumberString", () => {
 
     class MyClass {
         @IsNumberString()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1324,7 +1325,7 @@ describe("Contains", () => {
 
     class MyClass {
         @Contains(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1357,7 +1358,7 @@ describe("NotContains", () => {
 
     class MyClass {
         @NotContains(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1390,7 +1391,7 @@ describe("IsAlpha", () => {
 
     class MyClass {
         @IsAlpha()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1417,13 +1418,12 @@ describe("IsAlpha", () => {
 });
 
 describe("IsAlphanumeric", () => {
-    const constraint = "";
     const validValues = ["hellomyname1salex"];
     const invalidValues = [null, undefined, "hell*mynameisalex"];
 
     class MyClass {
         @IsAlphanumeric()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1450,13 +1450,12 @@ describe("IsAlphanumeric", () => {
 });
 
 describe("IsAscii", () => {
-    const constraint = "";
     const validValues = ["hellomyname1salex"];
     const invalidValues = [null, undefined, "hell*mynameisлеха"];
 
     class MyClass {
         @IsAscii()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1515,7 +1514,7 @@ describe("IsDecimal", () => {
         "100,2143192"
     ];
 
-    const isDecimalOptions: ValidatorJS.IsDecimalOptions = {
+    const isDecimalOptions: IsDecimalOptions = {
         // eslint-disable-next-line @typescript-eslint/camelcase
         force_decimal: true,
         // eslint-disable-next-line @typescript-eslint/camelcase
@@ -1525,7 +1524,7 @@ describe("IsDecimal", () => {
 
     class MyClass {
         @IsDecimal(isDecimalOptions)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1552,7 +1551,6 @@ describe("IsDecimal", () => {
 });
 
 describe("IsBase32", () => {
-    const constraint = "";
     const validValues = [
         "ZG======",
         "JBSQ====",
@@ -1578,7 +1576,7 @@ describe("IsBase32", () => {
 
     class MyClass {
         @IsBase32()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1606,13 +1604,12 @@ describe("IsBase32", () => {
 });
 
 describe("IsBase64", () => {
-    const constraint = "";
     const validValues = ["aGVsbG8="];
     const invalidValues = [null, undefined, "hell*mynameisalex"];
 
     class MyClass {
         @IsBase64()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1640,13 +1637,12 @@ describe("IsBase64", () => {
 
 describe("IsIBAN", () => {
 
-    const constraint = "";
     const validValues = ["GR96 0810 0010 0000 0123 4567 890"];
     const invalidValues = [null, undefined, "XX22YYY1234567890123"];
 
     class MyClass {
         @IsIBAN()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1675,13 +1671,12 @@ describe("IsIBAN", () => {
 
 describe("IsBIC", () => {
 
-    const constraint = "";
     const validValues = ["SBICKEN1345"];
     const invalidValues = [null, undefined, "SBIC23NXXX"];
 
     class MyClass {
         @IsBIC()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1710,13 +1705,12 @@ describe("IsBIC", () => {
 
 describe("IsEthereumAddress", () => {
 
-    const constraint = "";
     const validValues = ["0x683E07492fBDfDA84457C16546ac3f433BFaa128"];
     const invalidValues = [null, undefined, "0xFCb5AFB808b5679b4911230Aa41FfCD0cd335b422222"];
 
     class MyClass {
         @IsEthereumAddress()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1745,13 +1739,12 @@ describe("IsEthereumAddress", () => {
 
 describe("IsBtcAddress", () => {
 
-    const constraint = "";
     const validValues = ["bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq"];
     const invalidValues = [null, undefined, "pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g"];
 
     class MyClass {
         @IsBtcAddress()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1780,13 +1773,12 @@ describe("IsBtcAddress", () => {
 
 describe("IsDataURI", () => {
 
-    const constraint = "";
     const validValues = ["data:text/html;charset=US-ASCII,%3Ch1%3EHello!%3C%2Fh1%3E"];
     const invalidValues = [null, undefined, "data:HelloWorld"];
 
     class MyClass {
         @IsDataURI()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1815,13 +1807,12 @@ describe("IsDataURI", () => {
 
 describe("IsHSL", () => {
 
-    const constraint = "";
     const validValues = ["hsl(-540, 03%, 4%)"];
     const invalidValues = [null, undefined, "hsl(-0160, 100%, 100a)"];
 
     class MyClass {
         @IsHSL()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1850,13 +1841,12 @@ describe("IsHSL", () => {
 
 describe("IsRgbColor", () => {
 
-    const constraint = "";
     const validValues = ["rgba(255,255,255,0.1)"];
     const invalidValues = [null, undefined, "rgba(0,0,0)"];
 
     class MyClass {
         @IsRgbColor()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1891,7 +1881,7 @@ describe("IsIdentityCard", () => {
 
     class MyClass {
         @IsIdentityCard(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1920,13 +1910,12 @@ describe("IsIdentityCard", () => {
 
 describe("IsEAN", () => {
 
-    const constraint = "";
     const validValues = ["9771234567003"];
     const invalidValues = [null, undefined, "079777681629"];
 
     class MyClass {
         @IsEAN()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1955,13 +1944,12 @@ describe("IsEAN", () => {
 
 describe("IsISRC", () => {
 
-    const constraint = "";
     const validValues = ["GBAYE6800011"];
     const invalidValues = [null, undefined, "SRC15705223"];
 
     class MyClass {
         @IsISRC()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -1990,13 +1978,12 @@ describe("IsISRC", () => {
 
 describe("IsRFC3339", () => {
 
-    const constraint = "";
     const validValues = ["2010-02-18t00:23:23.33+06:00"];
     const invalidValues = [null, undefined, "2009-05-31 14:60:55Z"];
 
     class MyClass {
         @IsRFC3339()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2025,13 +2012,12 @@ describe("IsRFC3339", () => {
 
 describe("IsLocale", () => {
 
-    const constraint = "";
     const validValues = ["en_US_POSIX"];
     const invalidValues = [null, undefined, "lo_POP"];
 
     class MyClass {
         @IsLocale()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2060,13 +2046,12 @@ describe("IsLocale", () => {
 
 describe("IsMagnetURI", () => {
 
-    const constraint = "";
     const validValues = ["magnet:?xt=urn:btih:1GSHJVBDVDVJFYEHKFHEFIO8573898434JBFEGHD&dn=foo&tr=udp://foo.com:1337"];
     const invalidValues = [null, undefined, "magnet:?xt=uarn:btih:MCJDCYUFHEUD6E2752T7UJNEKHSUGEJFGTFHVBJS&dn=bar&tr=udp://bar.com:1337"];
 
     class MyClass {
         @IsMagnetURI()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2095,13 +2080,12 @@ describe("IsMagnetURI", () => {
 
 describe("IsMimeType", () => {
 
-    const constraint = "";
     const validValues = ["multipart/form-data; boundary=something; charset=utf-8"];
     const invalidValues = [null, undefined, "font/woff2; charset=utf-8"];
 
     class MyClass {
         @IsMimeType()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2130,13 +2114,12 @@ describe("IsMimeType", () => {
 
 describe("IsOctal", () => {
 
-    const constraint = "";
     const validValues = ["0o01234567"];
     const invalidValues = [null, undefined, "00c12345670c"];
 
     class MyClass {
         @IsOctal()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2171,7 +2154,7 @@ describe("IsPassportNumber", () => {
 
     class MyClass {
         @IsPassportNumber(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2206,7 +2189,7 @@ describe("IsPostalCode", () => {
 
     class MyClass {
         @IsPostalCode(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2235,13 +2218,12 @@ describe("IsPostalCode", () => {
 
 describe("IsSemVer", () => {
 
-    const constraint = "";
     const validValues = ["1.1.2+meta-valid"];
     const invalidValues = [null, undefined, "1.0.0-alpha_beta"];
 
     class MyClass {
         @IsSemVer()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2276,7 +2258,7 @@ describe("IsByteLength", () => {
 
     class MyClass {
         @IsByteLength(constraint1, constraint2)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2315,7 +2297,7 @@ describe("IsCreditCard", () => {
 
     class MyClass {
         @IsCreditCard()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2391,7 +2373,7 @@ describe("IsCurrency", () => {
 
     class MyClass {
         @IsCurrency()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2446,7 +2428,7 @@ describe("IsEmail", () => {
 
     class MyClass {
         @IsEmail()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2497,7 +2479,7 @@ describe("IsFQDN", () => {
 
     class MyClass {
         @IsFQDN()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2539,7 +2521,7 @@ describe("IsFullWidth", () => {
 
     class MyClass {
         @IsFullWidth()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2581,7 +2563,7 @@ describe("IsHalfWidth", () => {
 
     class MyClass {
         @IsHalfWidth()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2627,7 +2609,7 @@ describe("IsVariableWidth", () => {
 
     class MyClass {
         @IsVariableWidth()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2670,7 +2652,7 @@ describe("IsHexColor", () => {
 
     class MyClass {
         @IsHexColor()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2712,7 +2694,7 @@ describe("IsHexadecimal", () => {
 
     class MyClass {
         @IsHexadecimal()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2759,7 +2741,7 @@ describe("IsMACAddress", () => {
 
     class MyClass {
         @IsMACAddress()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2828,7 +2810,7 @@ describe("IsIP", () => {
 
     class MyClass {
         @IsIP()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2870,7 +2852,7 @@ describe("IsISBN version 10", () => {
 
     class MyClass {
         @IsISBN(10)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -2910,7 +2892,7 @@ describe("IsISBN version 13", () => {
 
     class MyClass {
         @IsISBN(13)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3009,7 +2991,7 @@ describe("IsISO8601", () => {
 
     class MyClass {
         @IsISO8601()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3041,7 +3023,7 @@ describe("IsJSON", () => {
 
     class MyClass {
         @IsJSON()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3083,7 +3065,7 @@ describe("IsJWT", () => {
 
     class MyClass {
         @IsJWT()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3115,7 +3097,7 @@ describe("IsObject", () => {
 
     class MyClass {
         @IsObject()
-        someProperty: object;
+        someProperty: object | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3147,7 +3129,7 @@ describe("IsNotEmptyObject", () => {
 
     class MyClass {
         @IsNotEmptyObject()
-        someProperty: object;
+        someProperty: object | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3189,7 +3171,7 @@ describe("IsLowercase", () => {
 
     class MyClass {
         @IsLowercase()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3230,7 +3212,7 @@ describe("IsMongoId", () => {
 
     class MyClass {
         @IsMongoId()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3275,7 +3257,7 @@ describe("IsMultibyte", () => {
 
     class MyClass {
         @IsMultibyte()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3317,7 +3299,7 @@ describe("IsSurrogatePair", () => {
 
     class MyClass {
         @IsSurrogatePair()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3414,7 +3396,7 @@ describe("IsUrl", () => {
 
     class MyClass {
         @IsUrl()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3430,7 +3412,7 @@ describe("IsUrl", () => {
     });
 
     it("should fail if method in validator said that its invalid", () => {
-        invalidValues.forEach(value => expect(isURL(value)).toBeFalsy());
+        invalidValues.forEach(value => expect(isURL(value || '')).toBeFalsy());
     });
 
     it("should fail on localhost without require_tld option", () => {
@@ -3469,7 +3451,7 @@ describe("IsUUID", () => {
 
     class MyClass {
         @IsUUID()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3512,7 +3494,7 @@ describe("IsUUID v3", () => {
 
     class MyClass {
         @IsUUID("3")
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3558,7 +3540,7 @@ describe("IsUUID v4", () => {
 
     class MyClass {
         @IsUUID("4")
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3604,7 +3586,7 @@ describe("IsUUID v5", () => {
 
     class MyClass {
         @IsUUID("5")
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3653,7 +3635,7 @@ describe("IsFirebasePushId", () => {
 
     class MyClass {
         @IsFirebasePushId()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3695,7 +3677,7 @@ describe("IsUppercase", () => {
 
     class MyClass {
         @IsUppercase()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3729,7 +3711,7 @@ describe("Length", () => {
 
     class MyClass {
         @Length(constraint1, constraint2)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3768,7 +3750,7 @@ describe("MinLength", () => {
 
     class MyClass {
         @MinLength(constraint1)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3801,7 +3783,7 @@ describe("MaxLength", () => {
 
     class MyClass {
         @MaxLength(constraint1)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3834,7 +3816,7 @@ describe("Matches", () => {
 
     class MyClass {
         @Matches(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -3850,7 +3832,7 @@ describe("Matches", () => {
     });
 
     it("should fail if method in validator said that its invalid", () => {
-        invalidValues.forEach(value => expect(matches(value, constraint)).toBeFalsy());
+        invalidValues.forEach(value => expect(matches(value || '', constraint)).toBeFalsy());
     });
 
     it("should return error object with proper data", () => {
@@ -3863,7 +3845,7 @@ describe("Matches", () => {
 describe("IsMilitaryTime", () => {
     class MyClass {
         @IsMilitaryTime()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail for a valid time in the format HH:MM", () => {
@@ -3894,7 +3876,7 @@ describe("isPhoneNumber", () => {
 
         class MyClass {
             @IsPhoneNumber("CH")
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         it("should not fail if validator.validate said that its valid", () => {
@@ -3919,7 +3901,7 @@ describe("isPhoneNumber", () => {
 
         class MyClass {
             @IsPhoneNumber(null)
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         it("should not fail if validator.validate said that its valid", () => {
@@ -3935,7 +3917,7 @@ describe("isPhoneNumber", () => {
 describe("IsISO31661Alpha2", () => {
     class MyClass {
         @IsISO31661Alpha2()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail for a valid ISO31661 Alpha2 code", () => {
@@ -3952,7 +3934,7 @@ describe("IsISO31661Alpha2", () => {
 describe("IsISO31661Alpha3", () => {
     class MyClass {
         @IsISO31661Alpha3()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail for a valid ISO31661 Alpha3 code", () => {
@@ -3967,10 +3949,10 @@ describe("IsISO31661Alpha3", () => {
 });
 
 describe("isHash", () => {
-    function testHash(algorithm: ValidatorJS.HashAlgorithm, validValues: any[], invalidValues: any[]): void {
+    function testHash(algorithm: string, validValues: any[], invalidValues: any[]): void {
         class MyClass {
             @IsHash(algorithm)
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         it("should not fail if validator.validate said that its valid", () => {
@@ -4004,14 +3986,15 @@ describe("isHash", () => {
             "0bf1c35032a71a14c2f719e5a14c1e96"
         ];
         const invalidValues = [
-            undefined, null,
+            undefined,
+            null,
             "q94375dj93458w34",
             "39485729348",
             "%&FHKJFvk",
             "KYT0bf1c35032a71a14c2f719e5a1"
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["crc32", "crc32b"]) {
@@ -4022,7 +4005,8 @@ describe("isHash", () => {
             "0bf1c350",
         ];
         const invalidValues = [
-            undefined, null,
+            undefined,
+            null,
             "KYT0bf1c35032a71a14c2f719e5a14c1",
             "q94375dj93458w34",
             "q943",
@@ -4030,7 +4014,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["sha1", "tiger160", "ripemd160"]) {
@@ -4041,7 +4025,8 @@ describe("isHash", () => {
             "efd5d3b190e893ed317f38da2420d63b7ae0d5ed",
         ];
         const invalidValues = [
-            undefined, null,
+            undefined,
+            null,
             "KYT0bf1c35032a71a14c2f719e5a14c1",
             "KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk",
             "q94375dj93458w34",
@@ -4049,7 +4034,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["sha256"]) {
@@ -4068,7 +4053,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["sha384"]) {
@@ -4087,7 +4072,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["sha512"]) {
@@ -4106,7 +4091,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 
     for (const algorithm of ["tiger192"]) {
@@ -4125,7 +4110,7 @@ describe("isHash", () => {
             "%&FHKJFvk",
         ];
 
-        testHash(algorithm as ValidatorJS.HashAlgorithm, validValues, invalidValues);
+        testHash(algorithm, validValues, invalidValues);
     }
 });
 
@@ -4154,7 +4139,7 @@ describe("IsISSN", () => {
 
     class MyClass {
         @IsISSN()
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4198,7 +4183,7 @@ describe("IsISSN with options", () => {
 
     class MyClass {
         @IsISSN(options)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4232,7 +4217,7 @@ describe("ArrayContains", () => {
 
     class MyClass {
         @ArrayContains(constraint)
-        someProperty: string[];
+        someProperty: string[] | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4265,7 +4250,7 @@ describe("ArrayNotContains", () => {
 
     class MyClass {
         @ArrayNotContains(constraint)
-        someProperty: string[];
+        someProperty: string[] | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4297,7 +4282,7 @@ describe("ArrayNotEmpty", () => {
 
     class MyClass {
         @ArrayNotEmpty()
-        someProperty: string[];
+        someProperty: string[] | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4330,7 +4315,7 @@ describe("ArrayMinSize", () => {
 
     class MyClass {
         @ArrayMinSize(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4363,7 +4348,7 @@ describe("ArrayMaxSize", () => {
 
     class MyClass {
         @ArrayMaxSize(constraint)
-        someProperty: string;
+        someProperty: string | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4395,7 +4380,7 @@ describe("ArrayUnique", () => {
 
     class MyClass {
         @ArrayUnique()
-        someProperty: string[];
+        someProperty: string[] | undefined;
     }
 
     it("should not fail if validator.validate said that its valid", () => {
@@ -4432,7 +4417,7 @@ describe("isInstance", () => {
 
     class MyClass {
         @IsInstance(MySubClass)
-        someProperty: MySubClass;
+        someProperty: MySubClass | undefined;
     }
 
     const validValues = [new MySubClass()];

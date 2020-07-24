@@ -1,6 +1,21 @@
-import {Contains, IsDefined, Matches, MinLength, Validate, ValidateNested, ValidatorConstraint} from "../../src/decorator/decorators";
-import {Validator} from "../../src/validation/Validator";
-import {registerDecorator, ValidationArguments, ValidationError, ValidationOptions, ValidatorConstraintInterface} from "../../src";
+import {
+    Contains,
+    IsDefined,
+    Matches,
+    MinLength,
+    Validate,
+    ValidateNested,
+    ValidatorConstraint
+} from "../../src/decorator/decorators.ts";
+import {Validator} from "../../src/validation/Validator.ts";
+import {
+    registerDecorator,
+    ValidationArguments,
+    ValidationError,
+    ValidationOptions,
+    ValidatorConstraintInterface
+} from "../../src/mod.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
@@ -11,7 +26,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "String is not valid. You string must contain a hello word"
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -28,7 +43,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "$value is not valid. You string must contain a hello word"
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -42,13 +57,14 @@ describe("message", () => {
     it("$value token should be replaced in a custom message", () => {
         class MyClass {
             @MinLength(2, {
-                message: args => {
+                message: (args: ValidationArguments) => {
                     if (args.value.length < 2) {
                         return "$value is too short, minimum length is $constraint1 characters $property";
                     }
+                    return '';
                 }
             })
-            name: string;
+            name: string | undefined;
         }
 
         const model = new MyClass();
@@ -64,7 +80,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "String is not valid. You string must contain a $constraint1 word"
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -80,7 +96,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "$target is not valid."
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -96,7 +112,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "$property is not valid."
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -112,7 +128,7 @@ describe("message", () => {
             @Contains("hello", {
                 message: "$target#$property is not valid: $value must contain a $constraint1 word"
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -134,7 +150,7 @@ describe("each", () => {
                 @Contains("hello", {
                     each: true
                 })
-                someProperty: string[];
+                someProperty: string[] | undefined;
             }
 
             const model = new MyClass();
@@ -160,7 +176,7 @@ describe("each", () => {
                 @Validate(CustomIsNotArrayConstraint, {
                     each: true
                 })
-                someArrayOfNonArrayItems: string[];
+                someArrayOfNonArrayItems: string[] | undefined;
             }
 
             const model = new MyClass();
@@ -182,7 +198,7 @@ describe("each", () => {
                 @Validate(CustomContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: string[];
+                someProperty: string[] | undefined;
             }
 
             const model = new MyClass();
@@ -209,7 +225,7 @@ describe("each", () => {
                 @Validate(CustomAsyncContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: string[];
+                someProperty: string[] | undefined;
             }
 
             const model = new MyClass();
@@ -236,7 +252,7 @@ describe("each", () => {
                 @Validate(CustomMixedContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: string[];
+                someProperty: string[] | undefined;
             }
 
             const model = new MyClass();
@@ -258,7 +274,7 @@ describe("each", () => {
                 @Contains("hello", {
                     each: true
                 })
-                someProperty: Set<string>;
+                someProperty: Set<string> | undefined;
             }
 
             const model = new MyClass();
@@ -284,7 +300,7 @@ describe("each", () => {
                 @Validate(CustomIsNotSetConstraint, {
                     each: true
                 })
-                someSetOfNonSetItems: Set<string>;
+                someSetOfNonSetItems: Set<string> | undefined;
             }
 
             const model = new MyClass();
@@ -306,7 +322,7 @@ describe("each", () => {
                 @Validate(CustomContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Set<string>;
+                someProperty: Set<string> | undefined;
             }
 
             const model = new MyClass();
@@ -333,7 +349,7 @@ describe("each", () => {
                 @Validate(CustomAsyncContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Set<string>;
+                someProperty: Set<string> | undefined;
             }
 
             const model = new MyClass();
@@ -360,7 +376,7 @@ describe("each", () => {
                 @Validate(CustomMixedContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Set<string>;
+                someProperty: Set<string> | undefined;
             }
 
             const model = new MyClass();
@@ -383,7 +399,7 @@ describe("each", () => {
                 @Contains("hello", {
                     each: true
                 })
-                someProperty: Map<string, string>;
+                someProperty: Map<string, string> | undefined;
             }
 
             const model = new MyClass();
@@ -409,7 +425,7 @@ describe("each", () => {
                 @Validate(CustomIsNotMapConstraint, {
                     each: true
                 })
-                someArrayOfNonArrayItems: Map<string, string>;
+                someArrayOfNonArrayItems: Map<string, string> | undefined;
             }
 
             const model = new MyClass();
@@ -431,7 +447,7 @@ describe("each", () => {
                 @Validate(CustomContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Map<string, string>;
+                someProperty: Map<string, string> | undefined;
             }
 
             const model = new MyClass();
@@ -458,7 +474,7 @@ describe("each", () => {
                 @Validate(CustomAsyncContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Map<string, string>;
+                someProperty: Map<string, string> | undefined;
             }
 
             const model = new MyClass();
@@ -485,7 +501,7 @@ describe("each", () => {
                 @Validate(CustomMixedContainsHelloConstraint, {
                     each: true
                 })
-                someProperty: Map<string, string>;
+                someProperty: Map<string, string> | undefined;
             }
 
             const model = new MyClass();
@@ -516,12 +532,12 @@ describe("groups", () => {
         @Contains("hello", {
             groups: ["title-validation"]
         })
-        title: string;
+        title: string | undefined;
 
         @Contains("bye", {
             groups: ["text-validation"]
         })
-        text: string;
+        text: string | undefined;
     }
 
     const validTitle = new MyClass();
@@ -693,7 +709,7 @@ describe("groups", () => {
         class MyClass {
             @Contains("hello", {groups: ["contains"]})
             @Matches(/.*stranger.*/, {groups: ["matches"]})
-            title: string;
+            title: string | undefined;
         }
 
         function expectTitleMatches(error: ValidationError): void {
@@ -812,13 +828,13 @@ describe("groups", () => {
             @Contains("hello", {
                 groups: ["sometimes"]
             })
-            title: string;
+            title: string | undefined;
 
             @Contains("bye", {
                 groups: ["always"],
                 always: true
             })
-            text: string;
+            text: string | undefined;
         }
 
         const model = new MyClass();
@@ -862,7 +878,7 @@ describe("groups", () => {
                 groups: ["always"],
                 always: true
             })
-            text: string;
+            text: string | undefined;
         }
 
         class Root {
@@ -945,7 +961,7 @@ describe("context", () => {
                     hi: "there"
                 }
             })
-            someProperty: string;
+            someProperty: string | undefined;
 
             @Contains("bye", {
                 message: "String is not valid. You string must contain a bye word",
@@ -953,22 +969,22 @@ describe("context", () => {
                     bye: "now"
                 }
             })
-            someOtherProperty: string;
+            someOtherProperty: string | undefined;
 
             @IsDefined({
                 context: {
                     foo: "bar"
                 }
             })
-            requiredProperty: string;
+            requiredProperty: string | undefined;
 
             @IsLongerThan("lastName", {
                 context: {baz: "qux"},
                 message: "$property must be longer then $constraint1. Given value: $value"
             })
-            firstName: string;
+            firstName: string | undefined;
 
-            lastName: string;
+            lastName: string | undefined;
         }
 
         const model = new MyClass();
@@ -977,9 +993,13 @@ describe("context", () => {
 
         return validator.validate(model).then(errors => {
             expect(errors.length).toEqual(4);
+            // @ts-ignore
             expect(errors[0].contexts["contains"]).toEqual({hi: "there"});
+            // @ts-ignore
             expect(errors[1].contexts["contains"]).toEqual({bye: "now"});
+            // @ts-ignore
             expect(errors[2].contexts["isDefined"]).toEqual({foo: "bar"});
+            // @ts-ignore
             expect(errors[3].contexts["isLongerThan"]).toEqual({baz: "qux"});
         });
     });
@@ -997,14 +1017,16 @@ describe("context", () => {
                     whats: "up"
                 }
             })
-            someProperty: string;
+            someProperty: string | undefined;
         }
 
         const model = new MyClass();
         model.someProperty = "bippity";
         return validator.validate(model).then(errors => {
             expect(errors.length).toEqual(1);
+            // @ts-ignore
             expect(errors[0].contexts["contains"]).toEqual({hi: "there"});
+            // @ts-ignore
             expect(errors[0].contexts["minLength"]).toEqual({whats: "up"});
         });
     });
@@ -1014,7 +1036,7 @@ describe("context", () => {
             @Contains("hello", {
                 message: "String is not valid. You string must contain a hello word"
             })
-            someProperty: string;
+            someProperty: string | undefined;
 
             @Contains("bye", {
                 message: "String is not valid. You string must contain a bye word",
@@ -1022,7 +1044,7 @@ describe("context", () => {
                     bye: "now"
                 }
             })
-            someOtherProperty: string;
+            someOtherProperty: string | undefined;
         }
 
         const model = new MyClass();
@@ -1030,6 +1052,7 @@ describe("context", () => {
         return validator.validate(model).then(errors => {
             expect(errors.length).toEqual(2);
             expect(errors[0].contexts).toBeUndefined();
+            // @ts-ignore
             expect(errors[1].contexts["contains"]).toEqual({bye: "now"});
         });
     });

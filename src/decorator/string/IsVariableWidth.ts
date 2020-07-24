@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_VARIABLE_WIDTH = "isVariableWidth";
 
@@ -21,7 +21,7 @@ export function IsVariableWidth(validationOptions?: ValidationOptions): Property
         {
             name: IS_VARIABLE_WIDTH,
             validator: {
-                validate: (value, args): boolean => isVariableWidth(value),
+                validate: (value, _args): boolean => isVariableWidth(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must contain a full-width and half-width characters",
                     validationOptions

@@ -1,8 +1,8 @@
-import {registerDecorator} from "../../src/index";
-import {ValidationOptions} from "../../src/decorator/ValidationOptions";
-import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface";
-import {ValidatorConstraint} from "../../src/decorator/decorators";
-import {ValidationArguments} from "../../src/validation/ValidationArguments";
+import {registerDecorator} from "../../src/mod.ts";
+import {ValidationOptions} from "../../src/decorator/ValidationOptions.ts";
+import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface.ts";
+import {ValidatorConstraint} from "../../src/decorator/decorators.ts";
+import {ValidationArguments} from "../../src/validation/ValidationArguments.ts";
 
 export function IsLongerThan(property: string, validationOptions?: ValidationOptions) {
     return function (object: Object, propertyName: string) {
@@ -18,13 +18,13 @@ export function IsLongerThan(property: string, validationOptions?: ValidationOpt
 
 @ValidatorConstraint({ name: "isLongerThan" })
 export class IsLongerThanConstraint implements ValidatorConstraintInterface {
-    
+
     validate(value: any, args: ValidationArguments) {
         const [relatedPropertyName] = args.constraints;
         const relatedValue = (args.object as any)[relatedPropertyName];
-        return  typeof value === "string" && 
-                typeof relatedValue === "string" && 
+        return  typeof value === "string" &&
+                typeof relatedValue === "string" &&
                 value.length > relatedValue.length;
     }
-    
+
 }

@@ -1,9 +1,10 @@
-import {Validator} from "../../src/validation/Validator";
-import {ValidationArguments} from "../../src/validation/ValidationArguments";
-import {registerDecorator} from "../../src/register-decorator";
-import {ValidationOptions} from "../../src/decorator/ValidationOptions";
-import {ValidatorConstraint} from "../../src/decorator/decorators";
-import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface";
+import {Validator} from "../../src/validation/Validator.ts";
+import {ValidationArguments} from "../../src/validation/ValidationArguments.ts";
+import {registerDecorator} from "../../src/register-decorator.ts";
+import {ValidationOptions} from "../../src/decorator/ValidationOptions.ts";
+import {ValidatorConstraint} from "../../src/decorator/decorators.ts";
+import {ValidatorConstraintInterface} from "../../src/validation/ValidatorConstraintInterface.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
@@ -44,8 +45,8 @@ describe("decorator with inline validation", () => {
             context: {foo: "bar"},
             message: "$property must be longer then $constraint1. Given value: $value"
         })
-        firstName: string;
-        lastName: string;
+        firstName: string | undefined;
+        lastName: string| undefined;
     }
 
     class MyClassWithAsyncValidator {
@@ -53,12 +54,12 @@ describe("decorator with inline validation", () => {
             context: {foo: "bar", promise: true},
             message: "$property must be longer then $constraint1. Given value: $value"
         })
-        firstName: string;
-        lastName: string;
+        firstName: string | undefined;
+        lastName: string | undefined;
     }
 
     it("if firstName is not empty and lastLame is empty then it should succeed", () => {
-        expect.assertions(1);
+        // expect.assertions(1);
         const model = new MyClass();
         model.firstName = "hell no world";
         return validator.validate(model).then(errors => {
@@ -67,7 +68,7 @@ describe("decorator with inline validation", () => {
     });
 
     it("if firstName is empty and lastLame is not empty then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new MyClass();
         model.firstName = "";
         model.lastName = "Kim";
@@ -78,7 +79,7 @@ describe("decorator with inline validation", () => {
     });
 
     it("if firstName is shorter then lastLame then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new MyClass();
         model.firstName = "Li";
         model.lastName = "Kim";
@@ -89,7 +90,7 @@ describe("decorator with inline validation", () => {
     });
 
     it("should include context", () => {
-        expect.assertions(4);
+        // expect.assertions(4);
         const model = new MyClass();
         const asyncModel = new MyClassWithAsyncValidator();
         model.firstName = asyncModel.firstName = "Paul";
@@ -100,7 +101,9 @@ describe("decorator with inline validation", () => {
             expect(errors[0].contexts).toEqual({isLongerThan: {foo: "bar"}});
             return validator.validate(asyncModel).then(errors => {
                 expect(errors.length).toEqual(1);
-                expect(errors[0].contexts).toHaveProperty("isLongerThan.foo", "bar");
+                expect(errors[0].contexts).toHaveProperty("isLongerThan")
+                expect(errors[0].contexts?.isLongerThan).toHaveProperty("foo");
+                expect(errors[0].contexts?.isLongerThan.foo).toEqual("bar");
             });
         });
     });
@@ -136,12 +139,12 @@ describe("decorator with default message", () => {
 
     class SecondClass {
         @IsLonger("lastName")
-        firstName: string;
-        lastName: string;
+        firstName: string | undefined;
+        lastName: string | undefined;
     }
 
     it("if firstName is not empty and lastLame is empty then it should succeed", () => {
-        expect.assertions(1);
+        // expect.assertions(1);
         const model = new SecondClass();
         model.firstName = "hell no world";
         return validator.validate(model).then(errors => {
@@ -150,7 +153,7 @@ describe("decorator with default message", () => {
     });
 
     it("if firstName is empty and lastLame is not empty then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new SecondClass();
         model.firstName = "";
         model.lastName = "Kim";
@@ -161,7 +164,7 @@ describe("decorator with default message", () => {
     });
 
     it("if firstName is shorter then lastLame then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new SecondClass();
         model.firstName = "Li";
         model.lastName = "Kim";
@@ -200,16 +203,16 @@ describe("decorator with separate validation constraint class", () => {
     }
 
     class MyClass {
-        firstName: string;
+        firstName: string | undefined;
 
         @IsShorterThan("firstName", {
             message: "$property must be shorter then $constraint1. Given value: $value"
         })
-        lastName: string;
+        lastName: string | undefined;
     }
 
     it("if firstName is not empty and lastLame is empty then it should succeed", () => {
-        expect.assertions(1);
+        // expect.assertions(1);
         const model = new MyClass();
         model.firstName = "hell no world";
         return validator.validate(model).then(errors => {
@@ -218,7 +221,7 @@ describe("decorator with separate validation constraint class", () => {
     });
 
     it("if firstName is empty and lastLame is not empty then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new MyClass();
         model.firstName = "";
         model.lastName = "Kim";
@@ -229,7 +232,7 @@ describe("decorator with separate validation constraint class", () => {
     });
 
     it("if firstName is shorter then lastLame then it should fail", () => {
-        expect.assertions(2);
+        // expect.assertions(2);
         const model = new MyClass();
         model.firstName = "Li";
         model.lastName = "Kim";

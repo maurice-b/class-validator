@@ -1,5 +1,6 @@
-import {IsNotEmpty} from "../../src/decorator/decorators";
-import {Validator} from "../../src/validation/Validator";
+import {IsNotEmpty} from "../../src/decorator/decorators.ts";
+import {Validator} from "../../src/validation/Validator.ts";
+import {describe, expect, it} from "../dept.ts";
 
 const validator = new Validator();
 
@@ -8,7 +9,7 @@ describe("validator options", () => {
         class MyClass {
             @IsNotEmpty()
             title: string = "";
-            isActive: boolean;
+            isActive: boolean | undefined;
         }
 
         const model = new MyClass();

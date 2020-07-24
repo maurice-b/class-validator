@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const NOT_CONTAINS = "notContains";
 
@@ -22,7 +22,7 @@ export function NotContains(seed: string, validationOptions?: ValidationOptions)
             name: NOT_CONTAINS,
             constraints: [seed],
             validator: {
-                validate: (value, args): boolean => notContains(value, args.constraints[0]),
+                validate: (value, args): boolean => notContains(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property should not contain a $constraint1 string",
                     validationOptions

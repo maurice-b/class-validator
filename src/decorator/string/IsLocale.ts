@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_LOCALE = "isLocale";
 
@@ -21,7 +21,7 @@ export function IsLocale(validationOptions?: ValidationOptions): PropertyDecorat
         {
             name: IS_LOCALE,
             validator: {
-                validate: (value, args): boolean => isLocale(value),
+                validate: (value, _args): boolean => isLocale(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be locale",
                     validationOptions

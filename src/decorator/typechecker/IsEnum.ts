@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_ENUM = "isEnum";
 
@@ -21,7 +21,7 @@ export function IsEnum(entity: object, validationOptions?: ValidationOptions): P
             name: IS_ENUM,
             constraints: [entity],
             validator: {
-                validate: (value, args): boolean => isEnum(value, args.constraints[0]),
+                validate: (value, args): boolean => isEnum(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a valid enum value",
                     validationOptions

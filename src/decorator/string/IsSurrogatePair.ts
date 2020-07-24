@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_SURROGATE_PAIR = "isSurrogatePair";
 
@@ -21,7 +21,7 @@ export function IsSurrogatePair(validationOptions?: ValidationOptions): Property
         {
             name: IS_SURROGATE_PAIR,
             validator: {
-                validate: (value, args): boolean => isSurrogatePair(value),
+                validate: (value, _args): boolean => isSurrogatePair(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must contain any surrogate pairs chars",
                     validationOptions

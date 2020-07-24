@@ -1,5 +1,5 @@
-import {ValidationMetadataArgs} from "./ValidationMetadataArgs";
-import {ValidationArguments} from "../validation/ValidationArguments";
+import {ValidationMetadataArgs} from "./ValidationMetadataArgs.ts";
+import {ValidationArguments} from "../validation/ValidationArguments.ts";
 
 /**
  * This metadata contains validation rules.
@@ -38,7 +38,7 @@ export class ValidationMetadata {
     /**
      * Validation message to be shown in the case of error.
      */
-    message: string|((args: ValidationArguments) => string);
+    message: string | ((args: ValidationArguments) => string) | undefined;
 
     /**
      * Validation groups used for this validation.
@@ -73,14 +73,16 @@ export class ValidationMetadata {
         this.type = args.type;
         this.target = args.target;
         this.propertyName = args.propertyName;
-        this.constraints = args.constraints;
-        this.constraintCls = args.constraintCls;
+        this.constraints = args.constraints || [];
+
+        this.constraintCls = args.constraintCls || Function();
+
         this.validationTypeOptions = args.validationTypeOptions;
         if (args.validationOptions) {
             this.message = args.validationOptions.message;
-            this.groups = args.validationOptions.groups;
-            this.always = args.validationOptions.always;
-            this.each = args.validationOptions.each;
+            this.groups = args.validationOptions.groups || this.groups;
+            this.always = args.validationOptions.always || this.always;
+            this.each = args.validationOptions.each || this.each;
             this.context = args.validationOptions.context;
         }
     }

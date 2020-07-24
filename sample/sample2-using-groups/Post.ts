@@ -1,4 +1,4 @@
-import {Contains, IsInt, Length, IsEmail, IsFQDN, IsDate} from "../../src/decorator/decorators";
+import {Contains, IsDate, IsEmail, IsFQDN, IsInt, Length} from "../../src/decorator/decorators.ts";
 
 export class Post {
 
@@ -10,29 +10,29 @@ export class Post {
         message: "Incorrect length!",
         groups: ["admins"]
     })
-    title: string;
+    title: string | undefined;
 
     @Contains("hello", {
         message: "It should contain word \"hello!\"",
         groups: ["users", "moderators"]
     })
-    text: string;
+    text: string | undefined;
 
     @IsInt()
-    rating: number;
+    rating: number | undefined;
 
     @IsEmail(undefined, {
         always: true
     })
-    email: string;
+    email: string | undefined;
 
     @IsFQDN(undefined, {
         message: "Site address should be correct",
         groups: ["users"]
     })
-    site: string;
+    site: string | undefined;
 
     @IsDate()
-    createDate: Date;
+    createDate: Date | undefined;
 
 }

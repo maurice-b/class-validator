@@ -1,10 +1,8 @@
-import {ValidationMetadata} from "../metadata/ValidationMetadata";
-import {ValidationTypes} from "./ValidationTypes";
-import {ValidationError} from "./ValidationError";
-import {ValidatorOptions} from "./ValidatorOptions";
-import {ValidationExecutor} from "./ValidationExecutor";
-import {ValidationOptions} from "../decorator/ValidationOptions";
-import * as validator from "validator";
+import {ValidationError} from "./ValidationError.ts";
+import {ValidatorOptions} from "./ValidatorOptions.ts";
+import {ValidationExecutor} from "./ValidationExecutor.ts";
+import {ValidationOptions} from "../decorator/ValidationOptions.ts";
+
 
 /**
  * Validator performs validation of the given object based on its metadata.
@@ -67,7 +65,7 @@ export class Validator {
     validateSync(objectOrSchemaName: object|string, objectOrValidationOptions: object|ValidationOptions, maybeValidatorOptions?: ValidatorOptions): ValidationError[] {
         const object = typeof objectOrSchemaName === "string" ? objectOrValidationOptions as object : objectOrSchemaName;
         const options = typeof objectOrSchemaName === "string" ? maybeValidatorOptions : objectOrValidationOptions as ValidationOptions;
-        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : undefined;
+        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : "";
 
         const executor = new ValidationExecutor(this, options);
         executor.ignoreAsyncValidations = true;
@@ -86,7 +84,7 @@ export class Validator {
     private coreValidate(objectOrSchemaName: object|string, objectOrValidationOptions: object|ValidationOptions, maybeValidatorOptions?: ValidatorOptions): Promise<ValidationError[]> {
         const object = typeof objectOrSchemaName === "string" ? objectOrValidationOptions as object : objectOrSchemaName;
         const options = typeof objectOrSchemaName === "string" ? maybeValidatorOptions : objectOrValidationOptions as ValidationOptions;
-        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : undefined;
+        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : "";
 
         const executor = new ValidationExecutor(this, options);
         const validationErrors: ValidationError[] = [];

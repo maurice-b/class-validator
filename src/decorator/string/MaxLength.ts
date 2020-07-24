@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const MAX_LENGTH = "maxLength";
 
@@ -22,7 +22,7 @@ export function MaxLength(max: number, validationOptions?: ValidationOptions): P
             name: MAX_LENGTH,
             constraints: [max],
             validator: {
-                validate: (value, args): boolean => maxLength(value, args.constraints[0]),
+                validate: (value, args): boolean => maxLength(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be shorter than or equal to $constraint1 characters",
                     validationOptions

@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_OBJECT = "isObject";
 
@@ -20,7 +20,7 @@ export function IsObject(validationOptions?: ValidationOptions): PropertyDecorat
         {
             name: IS_OBJECT,
             validator: {
-                validate: (value, args): boolean => isObject(value),
+                validate: (value, _args): boolean => isObject(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an object",
                     validationOptions

@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_CREDIT_CARD = "isCreditCard";
 
@@ -21,7 +21,7 @@ export function IsCreditCard(validationOptions?: ValidationOptions): PropertyDec
         {
             name: IS_CREDIT_CARD,
             validator: {
-                validate: (value, args): boolean => isCreditCard(value),
+                validate: (value, _args): boolean => isCreditCard(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a credit card",
                     validationOptions

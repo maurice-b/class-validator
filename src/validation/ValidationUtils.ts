@@ -1,11 +1,11 @@
-import {ValidationArguments} from "./ValidationArguments";
+import {ValidationArguments} from "./ValidationArguments.ts";
 
 export class ValidationUtils {
 
     static replaceMessageSpecialTokens(message: string|((args: ValidationArguments) => string),
                                 validationArguments: ValidationArguments): string {
 
-        let messageString: string;
+        let messageString: string = "";
         if (message instanceof Function) {
             messageString = (message as (args: ValidationArguments) => string)(validationArguments);
 

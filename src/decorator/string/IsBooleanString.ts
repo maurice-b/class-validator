@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_BOOLEAN_STRING = "isBooleanString";
 
@@ -21,7 +21,7 @@ export function IsBooleanString(validationOptions?: ValidationOptions): Property
         {
             name: IS_BOOLEAN_STRING,
             validator: {
-                validate: (value, args): boolean => isBooleanString(value),
+                validate: (value, _args): boolean => isBooleanString(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a boolean string",
                     validationOptions

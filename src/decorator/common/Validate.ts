@@ -1,9 +1,9 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { ValidationMetadataArgs } from "../../metadata/ValidationMetadataArgs";
-import { ValidationMetadata } from "../../metadata/ValidationMetadata";
-import { getMetadataStorage } from "../../metadata/MetadataStorage";
-import { ValidationTypes } from "../../validation/ValidationTypes";
-import { ConstraintMetadata } from "../../metadata/ConstraintMetadata";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {ValidationMetadataArgs} from "../../metadata/ValidationMetadataArgs.ts";
+import {ValidationMetadata} from "../../metadata/ValidationMetadata.ts";
+import {getMetadataStorage} from "../../metadata/MetadataStorage.ts";
+import {ValidationTypes} from "../../validation/ValidationTypes.ts";
+import {ConstraintMetadata} from "../../metadata/ConstraintMetadata.ts";
 
 /**
  * Registers custom validator class.
@@ -29,11 +29,11 @@ export function ValidatorConstraint(options?: { name?: string; async?: boolean }
 export function Validate(constraintClass: Function, validationOptions?: ValidationOptions): PropertyDecorator;
 export function Validate(constraintClass: Function, constraints?: any[], validationOptions?: ValidationOptions): PropertyDecorator;
 export function Validate(constraintClass: Function, constraintsOrValidationOptions?: any[] | ValidationOptions, maybeValidationOptions?: ValidationOptions): PropertyDecorator {
-    return function (object: object, propertyName: string): void {
+    return function (object: object, propertyName: string | symbol): void {
         const args: ValidationMetadataArgs = {
             type: ValidationTypes.CUSTOM_VALIDATION,
             target: object.constructor,
-            propertyName: propertyName,
+            propertyName: (typeof propertyName === "string") ? propertyName : propertyName.toString(),
             constraintCls: constraintClass,
             constraints: constraintsOrValidationOptions instanceof Array ? constraintsOrValidationOptions : undefined,
             validationOptions: !(constraintsOrValidationOptions instanceof Array) ? constraintsOrValidationOptions : maybeValidationOptions

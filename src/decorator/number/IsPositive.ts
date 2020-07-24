@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_POSITIVE = "isPositive";
 
@@ -18,7 +18,7 @@ export function IsPositive(validationOptions?: ValidationOptions): PropertyDecor
         {
             name: IS_POSITIVE,
             validator: {
-                validate: (value, args): boolean => isPositive(value),
+                validate: (value, _args): boolean => isPositive(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a positive number",
                     validationOptions

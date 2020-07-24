@@ -13,7 +13,7 @@ export class ValidationError {
     /**
      * Object's property that haven't pass validation.
      */
-    property: string;
+    property?: string;
 
     /**
      * Value that haven't pass a validation.
@@ -25,14 +25,14 @@ export class ValidationError {
     /**
      * Constraints that failed validation with error messages.
      */
-    constraints?: {
+    constraints: {
         [type: string]: string;
-    };
+    } = {};
 
     /**
      * Contains all nested validation errors of the property.
      */
-    children: ValidationError[];
+    children: ValidationError[] = [];
 
 
     /*
@@ -55,13 +55,15 @@ export class ValidationError {
 
         if (!hasParent) {
             return `An instance of ${boldStart}${this.target ? this.target.constructor.name : "an object"}${boldEnd} has failed the validation:\n` +
-                (this.constraints ? propConstraintFailed(this.property) : ``) +
-                this.children
-                    .map(childError => childError.toString(shouldDecorate, true, this.property))
-                    .join(``);
+                (this.constraints && this.property ? propConstraintFailed(this.property) : ``) +
+                (this.children ?
+                    this.children
+                        .map(childError => childError.toString(shouldDecorate, true, this.property))
+                        .join(``)
+                    : ``);
         } else {
             // we format numbers as array indexes for better readability.
-            const formattedProperty = Number.isInteger(+this.property) ? `[${this.property}]` : `${parentPath ? `.` : ``}${this.property}`;
+            const formattedProperty = (this.property && Number.isInteger(+this.property)) ? `[${this.property}]` : `${parentPath ? `.` : ``}${this.property}`;
 
             if (this.constraints) {
                 return propConstraintFailed(formattedProperty);

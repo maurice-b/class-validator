@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import ValidatorJS from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export type IsIpVersion = "4" | "6" | 4 | 6;
 
@@ -12,7 +12,7 @@ export const IS_IP = "isIp";
  */
 export function isIP(value: unknown, version?: IsIpVersion): boolean {
     const versionStr = version ? (`${version}` as "4" | "6") : undefined;
-    return typeof value === "string" && ValidatorJS.isIP(value, versionStr);
+    return typeof value === "string" && validator.isIP(value, versionStr);
 }
 
 /**
@@ -25,7 +25,7 @@ export function IsIP(version?: IsIpVersion, validationOptions?: ValidationOption
             name: IS_IP,
             constraints: [version],
             validator: {
-                validate: (value, args): boolean => isIP(value, args.constraints[0]),
+                validate: (value, args): boolean => isIP(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an ip address",
                     validationOptions

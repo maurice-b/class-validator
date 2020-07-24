@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_BYTE_LENGTH = "isByteLength";
 
@@ -22,7 +22,7 @@ export function IsByteLength(min: number, max?: number, validationOptions?: Vali
             name: IS_BYTE_LENGTH,
             constraints: [min, max],
             validator: {
-                validate: (value, args): boolean => isByteLength(value, args.constraints[0], args.constraints[1]),
+                validate: (value, args): boolean => isByteLength(value, (args && args.constraints[0]), (args && args.constraints[1])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property's byte length must fall into ($constraint1, $constraint2) range",
                     validationOptions

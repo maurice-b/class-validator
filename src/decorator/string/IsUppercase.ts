@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_UPPERCASE = "isUppercase";
 
@@ -9,7 +9,7 @@ export const IS_UPPERCASE = "isUppercase";
  * If given value is not a string, then it returns false.
  */
 export function isUppercase(value: unknown): boolean {
-    return typeof value === "string" && validator.isUppercase(value);
+    return typeof value === "string" && validator.isUpperCase(value);
 }
 
 /**
@@ -21,7 +21,7 @@ export function IsUppercase(validationOptions?: ValidationOptions): PropertyDeco
         {
             name: IS_UPPERCASE,
             validator: {
-                validate: (value, args): boolean => isUppercase(value),
+                validate: (value, _args): boolean => isUppercase(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be uppercase",
                     validationOptions

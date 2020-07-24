@@ -50,7 +50,7 @@
 
   BEFORE:
   ```ts
-      import {Validator} from "class-validator";
+      import {Validator} from "class-Validator.ts";
 
       const validator = new Validator();
       validator.isNotIn(value, possibleValues);
@@ -58,12 +58,12 @@
   ```
   AFTER:
   ```ts
-      import {isNotIn, isBoolean} from "class-validator";
+      import {isNotIn, isBoolean} from "class-Validator.ts";
 
       isNotIn(value, possibleValues);
       isBoolean(value);
   ```
-* IsNumberString decorator arguments changed to `@IsNumberString(ValidatorJS.IsNumericOptions, ValidationOptions)`.
+* IsNumberString decorator arguments changed to `@IsNumberString(validator.IsNumericOptions, ValidationOptions)`.
 
 
 

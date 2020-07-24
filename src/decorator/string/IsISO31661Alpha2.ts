@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_ISO31661_ALPHA_2 = "isISO31661Alpha2";
 
@@ -19,7 +19,7 @@ export function IsISO31661Alpha2(validationOptions?: ValidationOptions): Propert
         {
             name: IS_ISO31661_ALPHA_2,
             validator: {
-                validate: (value, args): boolean => isISO31661Alpha2(value),
+                validate: (value, _args): boolean => isISO31661Alpha2(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a valid ISO31661 Alpha2 code",
                     validationOptions

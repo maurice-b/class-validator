@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_MIME_TYPE = "isMimeType";
 
@@ -21,7 +21,7 @@ export function IsMimeType(validationOptions?: ValidationOptions): PropertyDecor
         {
             name: IS_MIME_TYPE,
             validator: {
-                validate: (value, args): boolean => isMimeType(value),
+                validate: (value, _args): boolean => isMimeType(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be MIME type format",
                     validationOptions

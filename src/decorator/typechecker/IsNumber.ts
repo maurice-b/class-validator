@@ -1,5 +1,5 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
 
 export const IS_NUMBER = "isNumber";
 
@@ -20,11 +20,11 @@ export function isNumber(value: unknown, options: IsNumberOptions = {}): boolean
         return false;
     }
 
-    if (value === Infinity || value === -Infinity) {
+    if ((value === Infinity || value === -Infinity) && options.allowInfinity !== undefined) {
         return options.allowInfinity;
     }
 
-    if (Number.isNaN(value)) {
+    if (Number.isNaN(value) && options.allowNaN !== undefined) {
         return options.allowNaN;
     }
 
@@ -50,7 +50,7 @@ export function IsNumber(options: IsNumberOptions = {}, validationOptions?: Vali
             name: IS_NUMBER,
             constraints: [options],
             validator: {
-                validate: (value, args): boolean => isNumber(value, args.constraints[0]),
+                validate: (value, args): boolean => isNumber(value, (args && args.constraints[0])),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a number conforming to the specified constraints",
                     validationOptions

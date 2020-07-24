@@ -1,12 +1,12 @@
-import {ConstraintMetadata} from "./metadata/ConstraintMetadata";
-import {ValidatorConstraintInterface} from "./validation/ValidatorConstraintInterface";
-import {ValidationMetadata} from "./metadata/ValidationMetadata";
-import {ValidationMetadataArgs} from "./metadata/ValidationMetadataArgs";
-import {ValidationTypes} from "./validation/ValidationTypes";
-import {ValidationArguments} from "./validation/ValidationArguments";
-import { getFromContainer } from "./container";
-import { MetadataStorage, getMetadataStorage } from "./metadata/MetadataStorage";
-import { ValidationOptions } from "./decorator/ValidationOptions";
+import {ConstraintMetadata} from "./metadata/ConstraintMetadata.ts";
+import {ValidatorConstraintInterface} from "./validation/ValidatorConstraintInterface.ts";
+import {ValidationMetadata} from "./metadata/ValidationMetadata.ts";
+import {ValidationMetadataArgs} from "./metadata/ValidationMetadataArgs.ts";
+import {ValidationTypes} from "./validation/ValidationTypes.ts";
+import {ValidationArguments} from "./validation/ValidationArguments.ts";
+import {getFromContainer} from "./container.ts";
+import {getMetadataStorage, MetadataStorage} from "./metadata/MetadataStorage.ts";
+import {ValidationOptions} from "./decorator/ValidationOptions.ts";
 
 export interface ValidationDecoratorOptions {
 
@@ -73,7 +73,7 @@ export function registerDecorator(options: ValidationDecoratorOptions): void {
                 return "";
             }
         };
-        getMetadataStorage().addConstraintMetadata(new ConstraintMetadata(constraintCls, options.name, options.async));
+        getMetadataStorage().addConstraintMetadata(new ConstraintMetadata(constraintCls, (options && options.name ? options.name : ""), options.async));
     }
 
     const validationMetadataArgs: ValidationMetadataArgs = {

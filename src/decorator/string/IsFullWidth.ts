@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_FULL_WIDTH = "isFullWidth";
 
@@ -21,7 +21,7 @@ export function IsFullWidth(validationOptions?: ValidationOptions): PropertyDeco
         {
             name: IS_FULL_WIDTH,
             validator: {
-                validate: (value, args): boolean => isFullWidth(value),
+                validate: (value, _args): boolean => isFullWidth(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must contain a full-width characters",
                     validationOptions

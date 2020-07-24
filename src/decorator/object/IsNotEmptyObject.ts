@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import { isObject } from "../typechecker/IsObject";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {isObject} from "../typechecker/IsObject.ts";
 
 export const IS_NOT_EMPTY_OBJECT = "isNotEmptyObject";
 
@@ -30,7 +30,7 @@ export function IsNotEmptyObject(validationOptions?: ValidationOptions): Propert
         {
             name: IS_NOT_EMPTY_OBJECT,
             validator: {
-                validate: (value, args): boolean => isNotEmptyObject(value),
+                validate: (value, _args): boolean => isNotEmptyObject(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a non-empty object",
                     validationOptions

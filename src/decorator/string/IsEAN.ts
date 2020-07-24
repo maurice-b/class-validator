@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_EAN = "isEAN";
 
@@ -21,7 +21,7 @@ export function IsEAN(validationOptions?: ValidationOptions): PropertyDecorator 
         {
             name: IS_EAN,
             validator: {
-                validate: (value, args): boolean => isEAN(value),
+                validate: (value, _args): boolean => isEAN(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be an EAN (European Article Number)",
                     validationOptions

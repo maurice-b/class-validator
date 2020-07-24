@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_DATA_URI = "isDataURI";
 
@@ -21,7 +21,7 @@ export function IsDataURI(validationOptions?: ValidationOptions): PropertyDecora
         {
             name: IS_DATA_URI,
             validator: {
-                validate: (value, args): boolean => isDataURI(value),
+                validate: (value, _args): boolean => isDataURI(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a data uri format",
                     validationOptions

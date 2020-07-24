@@ -1,14 +1,14 @@
-import {Contains, IsInt, Length, IsEmail, IsFQDN, IsDate, ValidateNested} from "../../src/decorator/decorators";
-import {Tag} from "./Tag";
+import {Length, ValidateNested} from "../../src/decorator/decorators.ts";
+import {Tag} from "./Tag.ts";
 
 export class Post {
 
     @Length(10, 20, {
         message: "Incorrect length!"
     })
-    title: string;
+    title: string | undefined;
 
     @ValidateNested()
-    tags: Set<Tag>;
+    tags: Set<Tag> | undefined;
 
 }

@@ -1,6 +1,6 @@
-import { ValidationOptions } from "../ValidationOptions";
-import { buildMessage, ValidateBy } from "../common/ValidateBy";
-import validator from "validator";
+import {ValidationOptions} from "../ValidationOptions.ts";
+import {buildMessage, ValidateBy} from "../common/ValidateBy.ts";
+import {validator} from "file:D:/Development/Projects/Personal/deno-libs/validator/mod.ts";
 
 export const IS_MONGO_ID = "isMongoId";
 
@@ -21,7 +21,7 @@ export function IsMongoId(validationOptions?: ValidationOptions): PropertyDecora
         {
             name: IS_MONGO_ID,
             validator: {
-                validate: (value, args): boolean => isMongoId(value),
+                validate: (value, _args): boolean => isMongoId(value),
                 defaultMessage: buildMessage(
                     (eachPrefix) => eachPrefix + "$property must be a mongodb id",
                     validationOptions
